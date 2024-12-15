@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add custom styles if needed */
+        .content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .content h2 {
+            color: #2F855A;
+        }
+        .resource-link {
+            color: #2F855A;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .resource-link:hover {
+            color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <h1 class="text-center">Educational Resources</h1>
+
+    <div class="row">
+        <!-- Sidebar with Links -->
+        <div class="col-md-3">
+            <h4>Tips for Consumers</h4>
+            <ul class="list-unstyled">
+                <li><a href="#" class="resource-link" onclick="loadContent('consumer1')">How to Choose Fresh Produce</a></li>
+                <li><a href="#" class="resource-link" onclick="loadContent('consumer2')">Proper Storage for Fruits and Vegetables</a></li>
+                <li><a href="#" class="resource-link" onclick="loadContent('consumer3')">Healthy Recipes with Seasonal Produce</a></li>
+            </ul>
+
+            <h4 class="mt-4">Farmers' Corner</h4>
+            <ul class="list-unstyled">
+                <li><a href="#" class="resource-link" onclick="loadContent('farmer1')">Best Practices for Sustainable Farming</a></li>
+                <li><a href="#" class="resource-link" onclick="loadContent('farmer2')">Tools for Efficient Farming</a></li>
+                <li><a href="#" class="resource-link" onclick="loadContent('farmer3')">How to Improve Crop Yields</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Display Section -->
+        <div class="col-md-9">
+            <div id="contentArea" class="content">
+                <h2>Welcome to Educational Resources</h2>
+                <p>Select a link from the sidebar to view detailed content.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript to dynamically load content into the content area
+    function loadContent(contentType) {
+        let contentArea = document.getElementById("contentArea");
+
+        if(contentType === "consumer1") {
+            contentArea.innerHTML = `
+                <h2>How to Choose Fresh Produce</h2>
+                <p>Choosing fresh produce is essential for ensuring the best flavor and nutritional value. When buying fruits and vegetables, look for firm texture, vibrant color, and minimal bruising. Fresh produce will have a fragrant aroma and should not feel overly soft or mushy.</p>
+            `;
+        } 
+        else if(contentType === "consumer2") {
+            contentArea.innerHTML = `
+                <h2>Proper Storage for Fruits and Vegetables</h2>
+                <p>Storing fresh produce correctly can extend its shelf life and preserve its nutritional value. For fruits like apples and oranges, keep them in a cool, dry place. Vegetables such as leafy greens should be stored in the fridge to keep them fresh longer.</p>
+            `;
+        } 
+        else if(contentType === "consumer3") {
+            contentArea.innerHTML = `
+                <h2>Healthy Recipes with Seasonal Produce</h2>
+                <p>Using seasonal produce in your meals provides fresh, flavorful ingredients. Consider making a simple vegetable stir-fry with fresh, locally grown vegetables or try a fruit salad with seasonal fruits like mangoes and pineapples.</p>
+            `;
+        }
+        else if(contentType === "farmer1") {
+            contentArea.innerHTML = `
+                <h2>Best Practices for Sustainable Farming</h2>
+                <p>Sustainable farming practices focus on maintaining healthy land, water, and ecosystems. Techniques such as crop rotation, composting, and using organic fertilizers can improve soil health and reduce environmental impact.</p>
+            `;
+        } 
+        else if(contentType === "farmer2") {
+            contentArea.innerHTML = `
+                <h2>Tools for Efficient Farming</h2>
+                <p>Using the right tools can make a significant difference in farming productivity. Consider investing in modern equipment like irrigation systems, harvesters, and crop monitoring tools to enhance farm efficiency.</p>
+            `;
+        } 
+        else if(contentType === "farmer3") {
+            contentArea.innerHTML = `
+                <h2>How to Improve Crop Yields</h2>
+                <p>Improving crop yields involves using techniques like soil testing, proper fertilization, and pest control. Regular monitoring and timely interventions will ensure healthy crops and higher yields for farmers.</p>
+            `;
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

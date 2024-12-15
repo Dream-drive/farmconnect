@@ -3,17 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FarmConnect - Signup</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Optional CSS for styling -->
+    <title>FarmConnect</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for colors and layout -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Welcome to FarmConnect!</h1>
-   
-    <!-- Link to Signup Form -->
-    <a href="signup.html">Sign Up</a>
 
-    <!-- You can add a Login link here too -->
-    <br>
-    <a href="login.html">Login</a>
+<header></header>
+
+
+<body>
+    <main>
+        <!-- Hero Section -->
+<section class="hero-section">
+    <div class="container-fluid p-0">
+        <div class="hero-banner position-relative">
+            <!-- Banner Image -->
+            <img src="images/vegetables.jpg" alt="Fresh Produce" class="img-fluid w-100">
+
+            <!-- Overlay Content -->
+            <div class="hero-content text-center position-absolute">
+                <h1 class="tagline text-white">Connecting Farmers with Fresh Produce Directly to You</h1>
+                <p class="text-white lead">Experience the freshest products delivered straight from the farm.</p>
+                <div class="cta-buttons mt-4">
+                    <a href="#" class="btn btn-success btn-lg mr-3">Shop Now</a>
+                    <a href="#" class="btn btn-outline-light btn-lg">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Categories Section -->
+<section class="featured-categories py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Explore Our Categories</h2>
+            <p class="section-description">Discover a wide range of fresh produce and farm products.</p>
+        </div>
+
+        <div class="row">
+            <!-- Category 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="category-card text-center p-4 shadow">
+                    <img src="images/fruits.jpg" alt="Fruits" class="mb-3">
+                    <h4 class="category-title">Fruits</h4>
+                    <a href="#" class="btn btn-outline-success mt-2">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="category-card text-center p-4 shadow">
+                    <img src="images/vegetables.jpg" alt="Vegetables" class="mb-3">
+                    <h4 class="category-title">Vegetables</h4>
+                    <a href="#" class="btn btn-outline-success mt-2">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="category-card text-center p-4 shadow">
+                    <img src="images/organic-foods.jpg" alt="Organic" class="mb-3">
+                    <h4 class="category-title">Organic</h4>
+                    <a href="#" class="btn btn-outline-success mt-2">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="category-card text-center p-4 shadow">
+                    <img src="images/livestock.jpg" alt="Livestock" class="mb-3">
+                    <h4 class="category-title">Livestock</h4>
+                    <a href="#" class="btn btn-outline-success mt-2">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="category-card text-center p-4 shadow">
+                    <img src="images/grains.webp" alt="Dairy" class="mb-3">
+                    <h4 class="category-title">Cereals and Grains</h4>
+                    <a href="#" class="btn btn-outline-success mt-2">Explore</a>
+                </div>
+            </div>
+            <!-- Category 6 -->
+            <div class="col-md-4 mb-4">
+                <div class="category-card text-center p-4 shadow">
+                    <img src="images/foodstuff.jpg" alt="Dairy" class="mb-3">
+                    <h4 class="category-title">Foodstuff</h4>
+                    <a href="#" class="btn btn-outline-success mt-2">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Popular Products Section -->
+<section class="popular-products py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Popular Products</h2>
+            <p class="section-description">Browse our trending and seasonal picks, handpicked just for you.</p>
+        </div>
+
+        <!-- Product Carousel -->
+        <div id="productCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <!-- Product 1 -->
+                        <div class="col-md-3">
+                            <div class="product-card text-center p-3 shadow">
+                                <img src="images/apples" alt="Product 1" class="mb-3">
+                                <h5 class="product-name">Fresh Apples</h5>
+                                <p class="product-price">₵10.99</p>
+                                <div class="product-rating">
+                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                                    <small>(24 reviews)</small>
+                                </div>
+                                <button class="btn btn-success mt-3">Add to Cart</button>
+                            </div>
+                        </div>
+                        <!-- Product 2 -->
+                        <div class="col-md-3">
+                            <div class="product-card text-center p-3 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Product 2" class="mb-3">
+                                <h5 class="product-name">Organic Carrots</h5>
+                                <p class="product-price">₵10.99</p>
+                                <div class="product-rating">
+                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+                                    <small>(15 reviews)</small>
+                                </div>
+                                <button class="btn btn-success mt-3">Add to Cart</button>
+                            </div>
+                        </div>
+                        <!-- Product 3 -->
+                        <div class="col-md-3">
+                            <div class="product-card text-center p-3 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Product 3" class="mb-3">
+                                <h5 class="product-name">Eggs</h5>
+                                <p class="product-price">₵10.99</p>
+                                <div class="product-rating">
+                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                                    <small>(10 reviews)</small>
+                                </div>
+                                <button class="btn btn-success mt-3">Add to Cart</button>
+                            </div>
+                        </div>
+                        <!-- Product 4 -->
+                        <div class="col-md-3">
+                            <div class="product-card text-center p-3 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Product 4" class="mb-3">
+                                <h5 class="product-name">Fresh Tomatoes</h5>
+                                <p class="product-price">₵10.99</p>
+                                <div class="product-rating">
+                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    <small>(8 reviews)</small>
+                                </div>
+                                <button class="btn btn-success mt-3">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more carousel-item blocks for additional products -->
+            </div>
+
+        
+        </div>
+    </div>
+</section>
+
+
+<!-- Farmer Profiles Section -->
+<section class="farmer-profiles py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Meet Our Farmers</h2>
+            <p class="section-description">Learn about the dedicated farmers bringing fresh produce to your doorstep.</p>
+        </div>
+
+        <div class="row">
+            <!-- Featured Farmer 1 -->
+            <div class="col-md-4">
+                <div class="farmer-card text-center p-3 shadow">
+                    <img src="https://via.placeholder.com/200" alt="Farmer 1" class="mb-3 rounded-circle">
+                    <h5 class="farmer-name">Kwame Mensah</h5>
+                    <p class="farmer-location">Accra, Greater Accra</p>
+                    <p class="farmer-description">
+                        Specializes in organic vegetables and sustainable farming practices.
+                    </p>
+                    <button class="btn btn-success">View Products</button>
+                </div>
+            </div>
+            <!-- Featured Farmer 2 -->
+            <div class="col-md-4">
+                <div class="farmer-card text-center p-3 shadow">
+                    <img src="https://via.placeholder.com/200" alt="Farmer 2" class="mb-3 rounded-circle">
+                    <h5 class="farmer-name">Ama Nkrumah</h5>
+                    <p class="farmer-location">Kumasi, Ashanti Region</p>
+                    <p class="farmer-description">
+                        Known for premium-quality yams and traditional farming methods.
+                    </p>
+                    <button class="btn btn-success">View Products</button>
+                </div>
+            </div>
+            <!-- Featured Farmer 3 -->
+            <div class="col-md-4">
+                <div class="farmer-card text-center p-3 shadow">
+                    <img src="https://via.placeholder.com/200" alt="Farmer 3" class="mb-3 rounded-circle">
+                    <h5 class="farmer-name">Kojo Appiah</h5>
+                    <p class="farmer-location">Tamale, Northern Region</p>
+                    <p class="farmer-description">
+                        Focused on producing high-quality millet and maize for families.
+                    </p>
+                    <button class="btn btn-success">View Products</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Restaurant & Retailer B2B Portal Section -->
+<section class="b2b-portal py-5">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="section-title">B2B Portal for Restaurants & Retailers</h2>
+            <p class="section-description">
+                Exclusive access to bulk purchasing and volume discounts for businesses in Takoradi and beyond.
+            </p>
+        </div>
+
+        <div class="row align-items-center">
+            <!-- Quick Link or Banner -->
+            <div class="col-md-6">
+                <img src="https://via.placeholder.com/500x300" alt="B2B Portal" class="img-fluid rounded">
+            </div>
+            <!-- CTA and Information -->
+            <div class="col-md-6">
+                <h4 class="b2b-title">Why Partner with FarmConnect?</h4>
+                <ul class="b2b-benefits list-unstyled">
+                    <li><i class="fas fa-check-circle mr-2"></i> Access high-quality produce at competitive rates.</li>
+                    <li><i class="fas fa-check-circle mr-2"></i> Enjoy reliable delivery services tailored for bulk orders.</li>
+                    <li><i class="fas fa-check-circle mr-2"></i> Build long-term partnerships with local farmers.</li>
+                </ul>
+                <a href="#" class="btn btn-success mt-3">Sign Up for Business</a>
+                <a href="#" class="btn btn-outline-success mt-3">Contact Us for Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Methods and Security Section -->
+<section class="payment-security py-5">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="section-title">Secure Payment Methods</h2>
+            <p class="section-description">Convenient and secure ways to pay for fresh produce in Takoradi.</p>
+        </div>
+
+        <div class="row align-items-center">
+            <!-- Accepted Payment Methods -->
+            <div class="col-md-6">
+                <h4 class="payment-title">Accepted Payment Methods</h4>
+                <div class="payment-icons mt-3">
+                    <img src="https://via.placeholder.com/50x50" alt="Credit Card" class="mr-3">
+                    <img src="https://via.placeholder.com/50x50" alt="Mobile Wallet" class="mr-3">
+                    <img src="https://via.placeholder.com/50x50" alt="Cash on Delivery" class="mr-3">
+                </div>
+                <p class="mt-3">We accept Visa, MasterCard, MTN MoMo, and AirtelTigo Cash. Cash on Delivery is available for selected areas in Takoradi.</p>
+            </div>
+
+            <!-- Security Features -->
+            <div class="col-md-6">
+                <h4 class="security-title">Payment Security</h4>
+                <ul class="security-features list-unstyled mt-3">
+                    <li><i class="fas fa-lock mr-2"></i> Secure payment processing with SSL encryption.</li>
+                    <li><i class="fas fa-shield-alt mr-2"></i> Buyer protection for safe transactions.</li>
+                    <li><i class="fas fa-user-check mr-2"></i> Verified vendors for trust and reliability.</li>
+                </ul>
+                <p class="mt-3">Your privacy and safety are our top priorities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Educational Resources Section -->
+<section class="educational-resources py-5">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="section-title">Educational Resources</h2>
+            <p class="section-description">Learn more about fresh produce, farming practices, and how to make the most of your purchases.</p>
+        </div>
+
+        <div class="row">
+            <!-- Tips for Consumers -->
+            <div class="col-md-6 mb-4">
+                <div class="tips-consumers">
+                    <h4 class="resource-title">Tips for Consumers</h4>
+                    <ul class="resource-links list-unstyled">
+                        <li><a href="educational_res.html" class="resource-link">How to Choose Fresh Produce</a></li>
+                        <li><a href="educational_res.html" class="resource-link">Proper Storage for Fruits and Vegetables</a></li>
+                        <li><a href="educational_res.html" class="resource-link">Healthy Recipes with Seasonal Produce</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Farmers' Corner -->
+            <div class="col-md-6 mb-4">
+                <div class="farmers-corner">
+                    <h4 class="resource-title">Farmers' Corner</h4>
+                    <ul class="resource-links list-unstyled">
+                        <li><a href="educational_res.html" class="resource-link">Best Practices for Sustainable Farming</a></li>
+                        <li><a href="educational_res.html" class="resource-link">Tools for Efficient Farming</a></li>
+                        <li><a href="educational_res.html" class="resource-link">How to Improve Crop Yields</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Promotions and Discounts Section -->
+<section class="promotions-discounts py-5">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="section-title">Exclusive Offers & Discounts</h2>
+            <p class="section-description">Get the best deals on fresh produce and enjoy our rewards for being loyal customers.</p>
+        </div>
+
+        <div class="row">
+            <!-- Seasonal Deals -->
+            <div class="col-md-6 mb-4">
+                <div class="seasonal-deals">
+                    <h4 class="promo-title">Seasonal Deals</h4>
+                    <p class="promo-description">Enjoy discounts on selected items this season. Stock up on fresh produce at unbeatable prices!</p>
+                    <a href="#" class="promo-btn">Shop Seasonal Deals</a>
+                </div>
+            </div>
+
+            <!-- Loyalty Program -->
+            <div class="col-md-6 mb-4">
+                <div class="loyalty-program">
+                    <h4 class="promo-title">Loyalty Program</h4>
+                    <p class="promo-description">Earn points with every purchase and redeem them for discounts on future orders. Plus, get bonus points for referring friends!</p>
+                    <a href="#" class="promo-btn">Join the Loyalty Program</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Support Section -->
+<section class="customer-support py-5">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="section-title">Customer Support</h2>
+            <p class="section-description">We’re here to help! Get quick assistance or find answers to your questions.</p>
+        </div>
+
+        <div class="row">
+            <!-- Live Chat / Help Center -->
+            <div class="col-md-6 mb-4">
+                <div class="live-chat">
+                    <h4 class="support-title">Live Chat / Help Center</h4>
+                    <p class="support-description">Chat with our support team for instant help or explore our FAQ to find quick answers to common questions.</p>
+                    <a href="#" class="support-btn btn-outline-light">Start Live Chat</a>
+                    <br>
+                    <a href="#" class="support-btn btn-outline-light mt-3">Visit Help Center</a>
+                </div>
+            </div>
+
+            <!-- Phone/Email Information -->
+            <div class="col-md-6 mb-4">
+                <div class="contact-info">
+                    <h4 class="support-title">Contact Us</h4>
+                    <p class="support-description">Reach out to us for any inquiries or issues via phone or email.</p>
+                    <p class="contact-details">
+                        <strong>Phone:</strong> +233 123 456 789 <br>
+                        <strong>Email:</strong> support@farmconnect.com
+                    </p>
+                    <a href="mailto:support@farmconnect.com" class="support-btn">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+
+    <footer></footer>
+
+
+<!-- Bootstrap JS and Icons -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('header').outerHTML = data;
+        });
+   
+</script>
+
+<script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('footer').outerHTML = data;
+        });
+</script>
+
+
 </body>
 </html>

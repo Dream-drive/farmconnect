@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
 
 @Controller
 public class UserController {
@@ -17,7 +18,7 @@ public class UserController {
     // Display signup page
     @RequestMapping("/signup")
     public String showSignupForm() {
-        return "signup"; // This will return the signup.html page
+        return "redirect:/signup.html"; // Serve the signup.html file directly from static folder
     }
 
     // Handle signup form submission
@@ -28,5 +29,29 @@ public class UserController {
         userRepository.save(newUser);
 
         return "redirect:/"; // Redirect to homepage after successful signup
+    }
+
+    // Display login page
+    @RequestMapping("/login")
+    public String showLoginForm() {
+        return "redirect:/login.html"; // Serve the login.html file directly from static folder
+    }
+
+    // Handle login form submission
+    @PostMapping("/login")
+    public String loginUser(@RequestParam String email, @RequestParam String password, Model model) {
+        // Find user by email
+        User user = userRepository.findByEmail(email);
+
+        // Check if user exists and the password matches
+        if (user != null && user.getPassword().equals(password)) {
+            // Successful login
+            model.addAttribute("user", user); // Add user to the session or model
+            return "redirect:/index.html"; // Serve the index.html file directly from static folder
+        } else {
+            // Invalid credentials
+            model.addAttribute("error", "Invalid email or password");
+            return "redirect:/login.html"; // Return to login page with error message
+        }
     }
 }

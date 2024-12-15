@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmConnect - Marketplace</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Placeholder for Header -->
+    <header></header>
+
+    <br><br><br><br>
+    <!-- Marketplace Content -->
+    <main class="marketplace-page">
+        <div class="container py-5">
+            <!-- Product Categories Section -->
+            <section id="categories" class="mb-5">
+                <h2 class="text-center mb-4">Browse by Category</h2>
+                <div class="row">
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/fruits.jpg" class="img-fluid rounded" alt="Fruits">
+                            <h5 class="mt-2">Fruits</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/vegetables.jpg" class="img-fluid rounded" alt="Vegetables">
+                            <h5 class="mt-2">Vegetables</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/organic-foods.jpg" class="img-fluid rounded" alt="Organic">
+                            <h5 class="mt-2">Organic</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/livestock.jpg" class="img-fluid rounded" alt="Livestock">
+                            <h5 class="mt-2">Livestock</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/grains.webp" class="img-fluid rounded" alt="Cereals and Grains">
+                            <h5 class="mt-2">Cereals and Grains</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/foodstuff.jpg" class="img-fluid rounded" alt="Foodstuff">
+                            <h5 class="mt-2">Foodstuff</h5>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search and Filter Bar -->
+<section id="search-filter" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <!-- Search Input -->
+        <input type="text" class="form-control me-3 mb-2" placeholder="Search for products..." style="max-width: 300px;">
+        
+        <!-- Sort by Dropdown -->
+        <select class="form-select mb-2" style="max-width: 200px;">
+            <option selected>Sort by</option>
+            <option value="price-low-high">Price: Low to High</option>
+            <option value="price-high-low">Price: High to Low</option>
+            <option value="rating">Rating</option>
+            <option value="popularity">Popularity</option>
+            <option value="new-arrivals">New Arrivals</option>
+        </select>
+
+        <!-- Filters -->
+        <div class="d-flex">
+            <!-- Product Type Filter -->
+            <select class="form-select me-3 mb-2" style="max-width: 200px;">
+                <option selected>Product Type</option>
+                <option value="fruits">Fruits</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="livestock">Livestock</option>
+                <option value="dairy">Dairy</option>
+                <option value="organic">Organic</option>
+            </select>
+
+            <!-- Price Range Filter -->
+            <select class="form-select me-3 mb-2" style="max-width: 200px;">
+                <option selected>Price Range</option>
+                <option value="0-10">₵0 - ₵10</option>
+                <option value="10-50">₵10 - ₵50</option>
+                <option value="50-100">₵50 - ₵100</option>
+                <option value="100+">₵100+</option>
+            </select>
+
+            <!-- Location Filter -->
+            <select class="form-select mb-2" style="max-width: 200px;">
+                <option selected>Location</option>
+                <option value="takoradi">Takoradi</option>
+                <option value="accra">Accra</option>
+                <option value="kumasi">Kumasi</option>
+                <option value="regional">Regional</option>
+            </select>
+        </div>
+
+        <!-- Apply Filters Button -->
+        <button class="btn btn-primary mb-2">Apply Filters</button>
+    </div>
+</section>
+
+
+     <!-- Product Listing Grid -->
+<section id="product-listing">
+    <h2 class="text-center mb-4">Popular Products</h2>
+    <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Organic Tomatoes</h5>
+                    <p class="card-text">₵12.00 / Kg</p>
+                    <div class="product-rating">
+                        <span class="badge badge-warning">4.5 ★</span>
+                    </div>
+                    <a href="product-details.html?product=organic-tomatoes" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Fresh Pineapples</h5>
+                    <p class="card-text">₵8.00 / Piece</p>
+                    <div class="product-rating">
+                        <span class="badge badge-warning">4.0 ★</span>
+                    </div>
+                    <a href="product-details.html?product=fresh-pineapples" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Free-Range Eggs</h5>
+                    <p class="card-text">₵18.00 / Dozen</p>
+                    <div class="product-rating">
+                        <span class="badge badge-warning">4.8 ★</span>
+                    </div>
+                    <a href="product-details.html?product=free-range-eggs" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+          
+
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <footer>
+        <!-- Footer dynamically included -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('header').outerHTML = data;
+            });
+    </script>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('footer').outerHTML = data;
+            });
+    </script>
+    
+</body>
+</html>
