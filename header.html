@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Bootstrap CSS (for styling) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons (for icons like search, cart, etc.) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <title>FarmConnect</title>
+
+    <style>
+        /* Center the navbar items */
+        .navbar-nav {
+            display: flex;
+            justify-content: center; /* Center the nav links */
+            width: 100%;
+        }
+
+        /* Increase the size of the search input */
+        .search-bar input.form-control {
+            font-size: 1.5rem; /* Increase font size */
+            padding: 0.75rem 1.25rem; /* Increase padding for larger input field */
+            width: 100%; /* Make the input field take the full width */
+        }
+
+        /* Reduce the size of the search button */
+        .search-bar button {
+            font-size: 1rem; /* Reduce the button font size */
+            padding: 0.5rem 1rem; /* Decrease padding for smaller button */
+        }
+
+        /* Adjust logo size */
+        .logo img {
+            height: 50px; /* Adjust logo size */
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            flex-grow: 1;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        /* Account Dropdown Styling */
+        .dropdown {
+            margin-left: 10px; /* Add a little space between the account and the other elements */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header fixed-top bg-white shadow-sm">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-between">
+                <!-- Logo and Brand Name (Far Left) -->
+                <div class="col-md-1">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <img src="images/farmcon.png" alt="FarmConnect Logo" style="height: 50px;"> <!-- Adjust logo size -->
+                    </a>
+                </div>
+
+                <!-- Navigation Menu and Search Feature -->
+                <div class="col-md-7">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="marketplace.html">Marketplace</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">B2B Portal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Farmers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Payments</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Search Bar, Cart, and Account Dropdown Section -->
+                <div class="col-md-4 d-flex justify-content-end align-items-center">
+                    <!-- Search Feature -->
+                    <div class="container my-4">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                placeholder="Search for products..." 
+                                aria-label="Search">
+                            <button class="btn btn-success" type="button" aria-label="Search Button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Cart Icon -->
+                    <a href="cart.html" class="cart-icon mr-3 text-dark" style="font-size: 1.5rem;">
+                        <i class="fas fa-shopping-cart"></i> 
+                    </a>
+
+                    <!-- Account Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Account
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                            <li><a class="dropdown-item" href="signup.html">My Account</a></li>
+                            <li><a class="dropdown-item" href="login.html">Sign In</a></li>
+                            <li><a class="dropdown-item" href="orders.html">Orders</a></li>
+                            <li><a class="dropdown-item" href="saved-items.html">Saved Items</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bootstrap JS (necessary for interactive components like dropdowns) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

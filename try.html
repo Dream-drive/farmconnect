@@ -1,0 +1,365 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags for Responsive Design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 1.5rem;
+            color: #075e1b;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .navbar-nav .nav-link {
+            color: black;
+            font-weight: 500;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #0b6921;
+        }
+        .search-bar input {
+            border-radius: 3px;
+        }
+        .search-bar button {
+            border-radius: 50%;
+        }
+        .cart-icon i {
+            font-size: 1.4rem;
+        }
+    </style>
+
+    <title>FarmConnect</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header fixed-top">
+        <div class="container-fluid py-2">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Logo -->
+                <a href="index.html" class="logo">FarmConnect</a>
+
+                <!-- Navigation -->
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="marketplace.html">Marketplace</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">B2B Portal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Farmers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Payments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- Utilities: Search, Cart, Account -->
+                <div class="d-flex align-items-center">
+                    <!-- Search -->
+                    <form class="d-flex search-bar me-3" action="/search" method="GET">
+                        <input class="form-control form-control-sm" type="search" name="query" placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-outline-success btn-sm ms-2" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+
+                    <!-- Cart -->
+                    <a href="cart.html" class="cart-icon text-dark me-3">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+
+                    <!-- Account Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                            <li><a class="dropdown-item" href="signup.html">My Account</a></li>
+                            <li><a class="dropdown-item" href="login.html">Sign In</a></li>
+                            <li><a class="dropdown-item" href="orders.html">Orders</a></li>
+                            <li><a class="dropdown-item" href="saved-items.html">Saved Items</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Bootstrap CSS (for styling) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons (for icons like search, cart, etc.) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Title of the Page -->
+    <title>FarmConnect</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header fixed-top bg-white shadow-sm">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-between">
+                <!-- Logo and Brand Name (Far Left) -->
+                <div class="col-md-3">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="font-weight-bold" style="font-size: 1.5rem; color: #28a745;">FarmConnect</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu and Search Feature -->
+                <div class="col-md-6">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="marketplace.html">Marketplace</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">B2B Portal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Farmers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Payments</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Search Bar, Cart, and Account Dropdown Section -->
+                <div class="col-md-3 d-flex justify-content-end align-items-center">
+                    <!-- Search Feature -->
+                    <form class="d-flex search-bar mr-3" action="/search" method="GET">
+                        <input class="form-control form-control-sm" type="search" name="query" placeholder="Search..."
+                            aria-label="Search">
+                        <button class="btn btn-outline-success btn-sm ml-2" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+
+                    <!-- Cart Icon -->
+                    <a href="cart.html" class="cart-icon mr-3 text-dark" style="font-size: 1.5rem;">
+                        <i class="fas fa-shopping-cart"></i> 
+                    </a>
+
+                    <!-- Account Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="accountDropdown"
+                            data-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+                            <a class="dropdown-item" href="account.html">My Account</a>
+                            <a class="dropdown-item" href="orders.html">Orders</a>
+                            <a class="dropdown-item" href="saved-items.html">Saved Items</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bootstrap JS (necessary for interactive components like dropdowns) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+<table class="table table-hover table-striped shadow-sm rounded">
+    <thead class="thead-light">
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Ratings</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="images/product1.jpg" alt="Organic Carrots" class="img-thumbnail" style="width: 80px;"></td>
+            <td>
+                <h6 class="text-primary">Organic Carrots</h6>
+                <p class="small text-muted">By: Green Valley Farms</p>
+            </td>
+            <td class="text-success font-weight-bold">₵12.00 / Kg</td>
+            <td>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star-half-alt text-warning"></i>
+                <i class="far fa-star text-warning"></i>
+            </td>
+            <td><button class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Add</button></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><img src="images/product1.jpg" alt="Organic Carrots" class="img-thumbnail" style="width: 80px;"></td>
+            <td>
+                <h6 class="text-primary">Organic Carrots</h6>
+                <p class="small text-muted">By: Green Valley Farms</p>
+            </td>
+            <td class="text-success font-weight-bold">₵12.00 / Kg</td>
+            <td>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star-half-alt text-warning"></i>
+                <i class="far fa-star text-warning"></i>
+            </td>
+            <td><button class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Add</button></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><img src="images/product1.jpg" alt="Organic Carrots" class="img-thumbnail" style="width: 80px;"></td>
+            <td>
+                <h6 class="text-primary">Organic Carrots</h6>
+                <p class="small text-muted">By: Green Valley Farms</p>
+            </td>
+            <td class="text-success font-weight-bold">₵12.00 / Kg</td>
+            <td>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star-half-alt text-warning"></i>
+                <i class="far fa-star text-warning"></i>
+            </td>
+            <td><button class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Add</button></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td><img src="images/product1.jpg" alt="Organic Carrots" class="img-thumbnail" style="width: 80px;"></td>
+            <td>
+                <h6 class="text-primary">Organic Carrots</h6>
+                <p class="small text-muted">By: Green Valley Farms</p>
+            </td>
+            <td class="text-success font-weight-bold">₵12.00 / Kg</td>
+            <td>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star-half-alt text-warning"></i>
+                <i class="far fa-star text-warning"></i>
+            </td>
+            <td><button class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Add</button></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<section id="farmer-spotlights" class="container mt-5">
+    <h2 class="text-center mb-5 text-primary font-weight-bold">Farmer Spotlights</h2>
+    <div class="list-group">
+        <!-- Farmer 1 -->
+        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-1">John Doe</h5>
+                <p class="mb-1">Specializing in organic vegetables like tomatoes, cucumbers, and lettuce.</p>
+            </div>
+            <span class="badge bg-primary rounded-pill">View Products</span>
+        </a>
+
+        <!-- Farmer 2 -->
+        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-1">Jane Smith</h5>
+                <p class="mb-1">Focused on free-range eggs and poultry products.</p>
+            </div>
+            <span class="badge bg-primary rounded-pill">View Products</span>
+        </a>
+
+        <!-- Farmer 3 -->
+        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-1">Kwame Agyemang</h5>
+                <p class="mb-1">Producer of exotic fruits like pineapples and mangoes.</p>
+            </div>
+            <span class="badge bg-primary rounded-pill">View Products</span>
+        </a>
+    </div>
+</section>
