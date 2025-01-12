@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS for colors and layout -->
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
 
@@ -192,7 +193,7 @@
             <!-- Farmer Card 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Farmer 1">
+                    <img src="images/farmers4.jpg" class="card-img-top" alt="Farmer 1">
                     <div class="card-body">
                         <h5 class="card-title">John Doe</h5>
                         <p class="card-text text-muted">
@@ -206,7 +207,7 @@
             <!-- Farmer Card 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Farmer 2">
+                    <img src="images/why-connect.webp" class="card-img-top" alt="Farmer 2">
                     <div class="card-body">
                         <h5 class="card-title">Ama Asante</h5>
                         <p class="card-text text-muted">
@@ -220,7 +221,7 @@
             <!-- Farmer Card 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Farmer 3">
+                    <img src="images/farmer6.jpeg" class="card-img-top" alt="Farmer 3">
                     <div class="card-body">
                         <h5 class="card-title">Kwame Boateng</h5>
                         <p class="card-text text-muted">
@@ -237,7 +238,7 @@
             <h3 class="text-center text-dark"><i class="fas fa-star"></i> Farmer Spotlight</h3>
             <div class="row align-items-center mt-4">
                 <div class="col-md-4 text-center">
-                    <img src="https://via.placeholder.com/250" class="img-fluid rounded-circle" alt="Spotlight Farmer">
+                    <img src="images/farmer7.jpg" class="img-fluid rounded-circle" alt="Spotlight Farmer">
                 </div>
                 <div class="col-md-8">
                     <h4 class="text-success">Akosua Mensah</h4>
@@ -270,7 +271,7 @@
         <div class="row align-items-center">
             <!-- Quick Link or Banner -->
             <div class="col-md-6">
-                <img src="https://via.placeholder.com/500x300" alt="B2B Portal" class="img-fluid rounded">
+                <img src="images/farmersday5.jpg" alt="B2B Portal" class="img-fluid rounded">
             </div>
             <!-- CTA and Information -->
             <div class="col-md-6">
@@ -438,17 +439,19 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 
 <script>
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector('header').outerHTML = data;
-        });
+    
+        // JavaScript to dynamically include header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('header').outerHTML = data;
+            });
    
-</script>
 
-<script>
     fetch('footer.html')
         .then(response => response.text())
         .then(data => {

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarmConnect Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+    }
+    
+    .footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-success text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <h1 class="h3">FarmConnect</h1>
+        <nav>
+            <a href="index.html" class="text-white me-3">Home</a>
+            <!-- Change the Profile link to scroll to the Profile Management section -->
+            <a href="#profile-management" class="text-white me-3">Profile</a>
+            <a href="#" class="text-white">Logout</a>
+        </nav>
+    </div>
+</header>
+
+
+  <!-- Main Content -->
+  <main class="container my-4">
+    <!-- Welcome Section -->
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Welcome back, [Farmer's Name]!</h2>
+      <p class="text-muted">Here’s your dashboard overview.</p>
+    </div>
+
+    <!-- Quick Stats Section -->
+    <div class="row text-center mb-4">
+      <!-- Total Earnings -->
+      <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-currency-exchange fs-1 text-success"></i>
+            <h5 class="card-title mt-3">Total Earnings</h5>
+            <p class="fs-4 fw-bold text-success">GHS 12,450</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Orders -->
+      <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-cart-check fs-1 text-primary"></i>
+            <h5 class="card-title mt-3">Active Orders</h5>
+            <p class="fs-4 fw-bold text-primary">15</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending Deliveries -->
+      <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-truck fs-1 text-warning"></i>
+            <h5 class="card-title mt-3">Pending Deliveries</h5>
+            <p class="fs-4 fw-bold text-warning">7</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Reviews -->
+      <div class="col-md-3 mb-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-stars fs-1 text-info"></i>
+            <h5 class="card-title mt-3">Customer Reviews</h5>
+            <p class="fs-4 fw-bold text-info">4.8/5</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+
+    <!-- Recent Orders Section -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Recent Orders</h5>
+        <p class="text-muted">A quick look at your recent orders.</p>
+        <table class="table table-bordered">
+          <thead class="table-success">
+            <tr>
+              <th>Order ID</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th>Amount (GHS)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>Tomatoes</td>
+              <td>50 kg</td>
+              <td><span class="badge bg-primary">Processing</span></td>
+              <td>500</td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>Plantains</td>
+              <td>100 kg</td>
+              <td><span class="badge bg-warning text-dark">Pending</span></td>
+              <td>1,000</td>
+            </tr>
+            <tr>
+              <td>003</td>
+              <td>Carrots</td>
+              <td>30 kg</td>
+              <td><span class="badge bg-success">Completed</span></td>
+              <td>300</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Product Management Section -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h3>Product Management</h3>
+        </div>
+    </div>
+
+    <!-- Add New Product Form -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Add New Product</div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="product-name">Product Name</label>
+                            <input type="text" class="form-control" id="product-name" placeholder="Enter product name">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price">Price (GHS)</label>
+                            <input type="number" class="form-control" id="product-price" placeholder="Enter price">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-stock">Stock Quantity</label>
+                            <input type="number" class="form-control" id="product-stock" placeholder="Enter stock quantity">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-description">Product Description</label>
+                            <textarea class="form-control" id="product-description" rows="3" placeholder="Enter product description"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Existing Products Table -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">Manage Existing Products</div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Tomatoes</td>
+                                <td>GHS 10</td>
+                                <td>50</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Cassava</td>
+                                <td>GHS 15</td>
+                                <td>30</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Financials Section -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h3>Financials</h3>
+        </div>
+    </div>
+
+    <!-- Total Earnings Card -->
+    <div class="row mt-4">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">Total Earnings</div>
+                <div class="card-body">
+                    <h4 class="card-title">GHS 5,200</h4>
+                    <p class="card-text">Total earnings from sales in the past month.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Payments Card -->
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">Pending Payments</div>
+                <div class="card-body">
+                    <h4 class="card-title">GHS 1,000</h4>
+                    <p class="card-text">Payments pending confirmation or processing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment History Table -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">Payment History</div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Payment Date</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2025-01-10</td>
+                                <td>GHS 500</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2025-01-05</td>
+                                <td>GHS 1,200</td>
+                                <td><span class="badge bg-warning">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2025-01-01</td>
+                                <td>GHS 1,000</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Management Section with Tabs -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Profile Management Section -->
+<div id="profile-management" class="container mt-5">
+    <h3>Profile Management</h3>
+    <!-- Rest of the Profile Management content here -->
+</div>
+
+    </div>
+
+    
+
+    <!-- Nav Tabs for Profile Management -->
+    <ul class="nav nav-tabs" id="profileTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="profile-info-tab" data-bs-toggle="tab" href="#profile-info" role="tab" aria-controls="profile-info" aria-selected="true">Profile Info</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="change-password-tab" data-bs-toggle="tab" href="#change-password" role="tab" aria-controls="change-password" aria-selected="false">Change Password</a>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3" id="profileTabContent">
+        <!-- Profile Info Tab -->
+        <div class="tab-pane fade show active" id="profile-info" role="tabpanel" aria-labelledby="profile-info-tab">
+            <div class="card">
+                <div class="card-header">Profile Information</div>
+                <div class="card-body">
+                    <!-- Editable Profile Form -->
+                    <form id="profileForm">
+                        <div class="mb-3">
+                            <label for="profileName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="profileName" value="John Doe">
+                        </div>
+                        <div class="mb-3">
+                            <label for="farmName" class="form-label">Farm Name</label>
+                            <input type="text" class="form-control" id="farmName" value="Green Acres Farm">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="phone" value="+233 123 456 789">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" value="johndoe@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location" value="Takoradi, Western Region, Ghana">
+                        </div>
+
+                        <!-- Save Changes Button -->
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                    </form>
+
+                    <!-- Edit Profile Button (visible when form is not editing) -->
+                    <button id="editProfileButton" class="btn btn-primary mt-3">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Password Tab -->
+        <div class="tab-pane fade" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
+            <div class="card">
+                <div class="card-header">Change Password</div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="newPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Update Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Marketing & Promotions Section -->
+<div class="container mt-5">
+    <h3>Marketing & Promotions</h3>
+
+    <!-- Tab Navigation for Marketing & Promotions -->
+    <ul class="nav nav-tabs" id="marketingTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="discounts-offers-tab" data-bs-toggle="tab" href="#discounts-offers" role="tab" aria-controls="discounts-offers" aria-selected="true">Discounts & Offers</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="featured-products-tab" data-bs-toggle="tab" href="#featured-products" role="tab" aria-controls="featured-products" aria-selected="false">Featured Products</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="seasonal-campaigns-tab" data-bs-toggle="tab" href="#seasonal-campaigns" role="tab" aria-controls="seasonal-campaigns" aria-selected="false">Seasonal Campaigns</a>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3" id="marketingTabContent">
+
+        <!-- Discounts & Offers Tab -->
+        <div class="tab-pane fade show active" id="discounts-offers" role="tabpanel" aria-labelledby="discounts-offers-tab">
+            <div class="card">
+                <div class="card-header">Manage Discounts & Offers</div>
+                <div class="card-body">
+                    <form id="discountForm">
+                        <div class="mb-3">
+                            <label for="discountTitle" class="form-label">Discount Title</label>
+                            <input type="text" class="form-control" id="discountTitle" placeholder="Enter discount title (e.g., Christmas Sale)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="discountPercentage" class="form-label">Discount Percentage (%)</label>
+                            <input type="number" class="form-control" id="discountPercentage" placeholder="Enter discount percentage (e.g., 20)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="discountStartDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="discountStartDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="discountEndDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="discountEndDate">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Discount</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Products Tab -->
+        <div class="tab-pane fade" id="featured-products" role="tabpanel" aria-labelledby="featured-products-tab">
+            <div class="card">
+                <div class="card-header">Manage Featured Products</div>
+                <div class="card-body">
+                    <form id="featuredProductsForm">
+                        <div class="mb-3">
+                            <label for="productSelection" class="form-label">Select Product</label>
+                            <select class="form-select" id="productSelection">
+                                <option value="">Select product</option>
+                                <option value="1">Product 1</option>
+                                <option value="2">Product 2</option>
+                                <option value="3">Product 3</option>
+                                <!-- Add other products here dynamically -->
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Mark as Featured</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seasonal Campaigns Tab -->
+        <div class="tab-pane fade" id="seasonal-campaigns" role="tabpanel" aria-labelledby="seasonal-campaigns-tab">
+            <div class="card">
+                <div class="card-header">Manage Seasonal Campaigns</div>
+                <div class="card-body">
+                    <form id="seasonalCampaignForm">
+                        <div class="mb-3">
+                            <label for="campaignTitle" class="form-label">Campaign Title</label>
+                            <input type="text" class="form-control" id="campaignTitle" placeholder="Enter campaign title (e.g., Harvest Deals)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="campaignStartDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="campaignStartDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="campaignEndDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="campaignEndDate">
+                        </div>
+                        <button type="submit" class="btn btn-danger">Start Campaign</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Optional Success Alert for Successful Actions -->
+<div id="marketingSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+    <strong>Action completed successfully!</strong> The marketing action has been applied.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- Optional Error Alert for Errors -->
+<div id="marketingErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
+    <strong>Oops!</strong> Something went wrong. Please try again.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <p>&copy; 2025 FarmConnect - Empowering Farmers in Ghana</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!-- Order Management Section -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h3>Order Management</h3>
+        </div>
+    </div>
+
+    <!-- Active Orders Table -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">Active Orders</div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Akwasi Mensah</td>
+                                <td>Tomatoes</td>
+                                <td>10</td>
+                                <td>2025-01-10</td>
+                                <td><span class="badge bg-warning">Pending</span></td>
+                                <td>
+                                    <button class="btn btn-success btn-sm">Mark as Completed</button>
+                                    <button class="btn btn-info btn-sm">View Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Akosua Afia</td>
+                                <td>Cassava</td>
+                                <td>5</td>
+                                <td>2025-01-11</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>
+                                    <button class="btn btn-info btn-sm">View Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Deliveries Table -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">Pending Deliveries</div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Delivery Address</th>
+                                <th scope="col">Delivery Date</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Akwasi Mensah</td>
+                                <td>Tomatoes</td>
+                                <td>10</td>
+                                <td>Takoradi, Western Region</td>
+                                <td>2025-01-15</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Mark as Delivered</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Akosua Afia</td>
+                                <td>Cassava</td>
+                                <td>5</td>
+                                <td>Takoradi, Western Region</td>
+                                <td>2025-01-14</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">Mark as Delivered</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- JavaScript for Editing Profile and Success Alert -->
+<script>
+    document.getElementById("editProfileButton").addEventListener("click", function() {
+        // Enable all form inputs for editing
+        const inputs = document.querySelectorAll("#profileForm input");
+        inputs.forEach(input => {
+            input.disabled = false;
+        });
+
+        // Hide the Edit Profile button and show the Save Changes button
+        this.style.display = "none";
+        document.querySelector("button[type='submit']").style.display = "inline-block";
+    });
+
+    // Form submission (for example purposes)
+    document.getElementById("profileForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        
+        // Show success alert
+        document.getElementById("successAlert").style.display = "block";
+
+        // Optionally, hide the alert after a few seconds
+        setTimeout(function() {
+            document.getElementById("successAlert").style.display = "none";
+        }, 5000);
+    });
+</script>

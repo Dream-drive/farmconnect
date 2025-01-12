@@ -1,365 +1,1066 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Meta Tags for Responsive Design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>FarmConnect - Marketplace</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Font Awesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Custom Styles */
-        .header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Sidebar styling */
+
+        /* Sidebar styling */
+        .cart-preview-sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            /* Hidden by default */
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            transition: right 0.3s ease;
+            z-index: 9999;
         }
-        .logo {
-            font-size: 1.5rem;
-            color: #075e1b;
-            font-weight: bold;
-            text-decoration: none;
+
+        /* Sidebar Header styling */
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            margin-top: 3rem;
         }
-        .navbar-nav .nav-link {
-            color: black;
-            font-weight: 500;
+
+        .cart-items-list {
+            padding: 10px;
         }
-        .navbar-nav .nav-link:hover {
-            color: #0b6921;
+
+        .cart-summary {
+            padding: 10px;
+            background-color: #f9f9f9;
         }
-        .search-bar input {
-            border-radius: 3px;
+
+        .cart-actions {
+            padding: 10px;
+            text-align: center;
         }
-        .search-bar button {
-            border-radius: 50%;
+
+        /* Button Styling for Sidebar Toggle */
+        #open-cart-sidebar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
         }
-        .cart-icon i {
-            font-size: 1.4rem;
+
+        /* Close icon styling (Bootstrap icon) */
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #000;
+            cursor: pointer;
+        }
+
+
+        .cart-preview-sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            /* Sidebar hidden by default */
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .cart-preview-sidebar.open {
+            right: 0;
+            /* Show sidebar when open */
         }
     </style>
-
-    <title>FarmConnect</title>
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header class="header fixed-top">
-        <div class="container-fluid py-2">
-            <div class="d-flex align-items-center justify-content-between">
-                <!-- Logo -->
-                <a href="index.html" class="logo">FarmConnect</a>
+    <!-- Placeholder for Header -->
+    <header></header>
 
-                <!-- Navigation -->
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="marketplace.html">Marketplace</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">B2B Portal</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Farmers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Payments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+    <br><br><br><br>
+    <!-- Marketplace Content -->
+    <main class="marketplace-page">
+        <div class="container py-5">
 
-                <!-- Utilities: Search, Cart, Account -->
-                <div class="d-flex align-items-center">
-                    <!-- Search -->
-                    <form class="d-flex search-bar me-3" action="/search" method="GET">
-                        <input class="form-control form-control-sm" type="search" name="query" placeholder="Search..." aria-label="Search">
-                        <button class="btn btn-outline-success btn-sm ms-2" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
 
-                    <!-- Cart -->
-                    <a href="cart.html" class="cart-icon text-dark me-3">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
+               <!-- Product Listing Grid Section -->
+               <section id="product-listing" class="py-5">
+                <div class="container">
+                    <h2 class="text-center text-primary mb-4"><i class="fas fa-th-large"></i> Available Products</h2>
 
-                    <!-- Account Dropdown -->
-                    <div class="dropdown">
-                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Account
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
-                            <li><a class="dropdown-item" href="signup.html">My Account</a></li>
-                            <li><a class="dropdown-item" href="login.html">Sign In</a></li>
-                            <li><a class="dropdown-item" href="orders.html">Orders</a></li>
-                            <li><a class="dropdown-item" href="saved-items.html">Saved Items</a></li>
-                        </ul>
+                    <!-- Search and Filter Bar -->
+                    <section id="search-filter" class="mb-5">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <!-- Search Input -->
+                            <input type="text" class="form-control me-3 mb-2" placeholder="Search for products..."
+                                style="max-width: 300px;">
+
+                            <!-- Sort by Dropdown -->
+                            <select class="form-select mb-2" style="max-width: 200px;">
+                                <option selected>Sort by</option>
+                                <option value="price-low-high">Price: Low to High</option>
+                                <option value="price-high-low">Price: High to Low</option>
+                                <option value="rating">Rating</option>
+                                <option value="popularity">Popularity</option>
+                                <option value="new-arrivals">New Arrivals</option>
+                            </select>
+
+                            <!-- Filters -->
+                            <div class="d-flex">
+                                <!-- Product Type Filter -->
+                                <select class="form-select me-3 mb-2" style="max-width: 200px;">
+                                    <option selected>Product Type</option>
+                                    <option value="fruits">Fruits</option>
+                                    <option value="vegetables">Vegetables</option>
+                                    <option value="livestock">Livestock</option>
+                                    <option value="dairy">Dairy</option>
+                                    <option value="organic">Organic</option>
+                                </select>
+
+                                <!-- Price Range Filter -->
+                                <select class="form-select me-3 mb-2" style="max-width: 200px;">
+                                    <option selected>Price Range</option>
+                                    <option value="0-10">₵0 - ₵10</option>
+                                    <option value="10-50">₵10 - ₵50</option>
+                                    <option value="50-100">₵50 - ₵100</option>
+                                    <option value="100+">₵100+</option>
+                                </select>
+
+                                <!-- Location Filter -->
+                                <select class="form-select mb-2" style="max-width: 200px;">
+                                    <option selected>Location</option>
+                                    <option value="takoradi">Takoradi</option>
+                                    <option value="accra">Accra</option>
+                                    <option value="kumasi">Kumasi</option>
+                                    <option value="regional">Regional</option>
+                                </select>
+                            </div>
+
+                            <!-- Apply Filters Button -->
+                            <button class="btn btn-primary mb-2">Apply Filters</button>
+                        </div>
+                    </section>
+                    <div class="row">
+                        <!-- Product Card 1 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Organic Carrots</h5>
+                                    <p class="card-text text-muted">By: Green Valley Farms</p>
+                                    <p class="text-success font-weight-bold">₵12.00 / Kg</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ratings">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star-half-alt text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="text-muted">(4.5)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm add-to-cart" data-product-id="1"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Farm Fresh Lettuce</h5>
+                                    <p class="card-text text-muted">By: Sunrise Farms</p>
+                                    <p class="text-success font-weight-bold">₵8.00 / Head</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ratings">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="text-muted">(4.0)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm add-to-cart" data-product-id="2"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 2 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Farm Fresh Lettuce</h5>
+                                    <p class="card-text text-muted">By: Sunrise Farms</p>
+                                    <p class="text-success font-weight-bold">₵8.00 / Head</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ratings">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="text-muted">(4.0)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm add-to-cart" data-product-id="2"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 2 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Farm Fresh Lettuce</h5>
+                                    <p class="card-text text-muted">By: Sunrise Farms</p>
+                                    <p class="text-success font-weight-bold">₵8.00 / Head</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ratings">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="text-muted">(4.0)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm add-to-cart" data-product-id="2"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 2 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Farm Fresh Lettuce</h5>
+                                    <p class="card-text text-muted">By: Sunrise Farms</p>
+                                    <p class="text-success font-weight-bold">₵8.00 / Head</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ratings">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="text-muted">(4.0)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm add-to-cart" data-product-id="2"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sweet Pineapples</h5>
+                                    <p class="card-text text-muted">By: Golden Harvest Farms</p>
+                                    <p class="text-success font-weight-bold">₵15.00 / Piece</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="ratings">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star-half-alt text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="text-muted">(4.5)</span>
+                                        </div>
+                                        <button class="btn btn-success btn-sm add-to-cart" data-product-id="3"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+
+            <!-- Product Categories Section -->
+            <section id="categories" class="mb-5">
+                <h2 class="text-center mb-4">Browse by Category</h2>
+                <div class="row">
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/fruits.jpg" class="img-fluid rounded" alt="Fruits">
+                            <h5 class="mt-2">Fruits</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/vegetables.jpg" class="img-fluid rounded" alt="Vegetables">
+                            <h5 class="mt-2">Vegetables</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/organic-foods.jpg" class="img-fluid rounded" alt="Organic">
+                            <h5 class="mt-2">Organic</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/livestock.jpg" class="img-fluid rounded" alt="Livestock">
+                            <h5 class="mt-2">Livestock</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/grains.webp" class="img-fluid rounded" alt="Cereals and Grains">
+                            <h5 class="mt-2">Cereals and Grains</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center mb-4">
+                        <a href="#" class="category-link">
+                            <img src="images/foodstuff.jpg" class="img-fluid rounded" alt="Foodstuff">
+                            <h5 class="mt-2">Starchy Staples:</h5>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Listing Grid -->
+            <section id="product-listing">
+                <h2 class="text-center mb-4">Popular Products</h2>
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Organic Tomatoes</h5>
+                                <p class="card-text">₵12.00 / Kg</p>
+                                <div class="product-rating">
+                                    <span class="badge badge-warning">4.5 ★</span>
+                                </div>
+                                <a href="product-details.html?product=organic-tomatoes" class="btn"
+                                    style="background-color: #28a745; color: white;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Fresh Pineapples</h5>
+                                <p class="card-text">₵8.00 / Piece</p>
+                                <div class="product-rating">
+                                    <span class="badge badge-warning">4.0 ★</span>
+                                </div>
+                                <a href="product-details.html?product=fresh-pineapples" class="btn"
+                                    style="background-color: #28a745; color: white;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Free-Range Eggs</h5>
+                                <p class="card-text">₵18.00 / Dozen</p>
+                                <div class="product-rating">
+                                    <span class="badge badge-warning">4.8 ★</span>
+                                </div>
+                                <a href="product-details.html?product=free-range-eggs" class="btn"
+                                    style="background-color: #28a745; color: white;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Free-Range Eggs</h5>
+                                <p class="card-text">₵18.00 / Dozen</p>
+                                <div class="product-rating">
+                                    <span class="badge badge-warning">4.8 ★</span>
+                                </div>
+                                <a href="product-details.html?product=free-range-eggs" class="btn"
+                                    style="background-color: #28a745; color: white;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Free-Range Eggs</h5>
+                                <p class="card-text">₵18.00 / Dozen</p>
+                                <div class="product-rating">
+                                    <span class="badge badge-warning">4.8 ★</span>
+                                </div>
+                                <a href="product-details.html?product=free-range-eggs" class="btn"
+                                    style="background-color: #28a745; color: white;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Free-Range Eggs</h5>
+                                <p class="card-text">₵18.00 / Dozen</p>
+                                <div class="product-rating">
+                                    <span class="badge badge-warning">4.8 ★</span>
+                                </div>
+                                <a href="product-details.html?product=free-range-eggs" class="btn"
+                                    style="background-color: #28a745; color: white;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products Section -->
+            <section id="featured-products" class="py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center text-primary mb-4"><i class="fas fa-star"></i> Featured Products</h2>
+                    <div class="row">
+                        <!-- Product Card 1 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/seasonal-product.jpg" class="card-img-top" alt="Seasonal Product">
+                                <div class="card-body">
+                                    <h5 class="card-title">Organic Tomatoes</h5>
+                                    <p class="card-text">Freshly harvested organic tomatoes packed with flavor and
+                                        nutrients.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-success font-weight-bold">₵10.00 / Kg</span>
+                                        <button class="btn btn-success add-to-cart" data-product-id="1"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/popular-product.jpg" class="card-img-top" alt="Popular Product">
+                                <div class="card-body">
+                                    <h5 class="card-title">Free-Range Eggs</h5>
+                                    <p class="card-text">Farm-fresh free-range eggs with superior taste and quality.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-success font-weight-bold">₵30.00 / Dozen</span>
+                                        <button class="btn btn-success add-to-cart" data-product-id="2"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <img src="images/promoted-product.jpg" class="card-img-top" alt="Promoted Product">
+                                <div class="card-body">
+                                    <h5 class="card-title">Premium Honey</h5>
+                                    <p class="card-text">Pure, unprocessed honey from trusted local beekeepers.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-success font-weight-bold">₵50.00 / Bottle</span>
+                                        <button class="btn btn-success add-to-cart" data-product-id="3"><i
+                                                class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Location-Based Recommendations Section -->
+            <section id="location-recommendations" class="py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center text-primary mb-4">
+                        <i class="fas fa-map-marker-alt"></i> Products Available in Your Region
+                    </h2>
+                    <div class="form-group text-center">
+                        <label for="user-region" class="font-weight-bold">Select Your Region:</label>
+                        <select class="form-control w-50 mx-auto" id="user-region" onchange="filterProductsByRegion()">
+                            <option value="All" selected>All Regions</option>
+                            <option value="Takoradi">Takoradi</option>
+                            <option value="Greater Accra">Greater Accra</option>
+                            <option value="Ashanti">Ashanti</option>
+                            <option value="Western">Western</option>
+                            <option value="Central">Central</option>
+                            <option value="Volta">Volta</option>
+                            <!-- Add more regions as needed -->
+                        </select>
+                    </div>
+                    <div class="row" id="region-products">
+                        <!-- Example Product Card -->
+                        <div class="col-md-4 mb-4 product-card" data-region="Takoradi">
+                            <div class="card shadow-sm">
+                                <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Organic Tomatoes</h5>
+                                    <p class="card-text text-muted">By: Green Valley Farms</p>
+                                    <p class="text-success font-weight-bold">₵10.00 / Kg</p>
+                                    <button class="btn btn-success btn-sm add-to-cart" data-product-id="1">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Product Card -->
+                        <div class="col-md-4 mb-4 product-card" data-region="Greater Accra">
+                            <div class="card shadow-sm">
+                                <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Farm Fresh Eggs</h5>
+                                    <p class="card-text text-muted">By: Sunrise Farms</p>
+                                    <p class="text-success font-weight-bold">₵18.00 / Dozen</p>
+                                    <button class="btn btn-success btn-sm add-to-cart" data-product-id="2">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Product Card -->
+                        <div class="col-md-4 mb-4 product-card" data-region="Ashanti">
+                            <div class="card shadow-sm">
+                                <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sweet Bananas</h5>
+                                    <p class="card-text text-muted">By: Golden Harvest Farms</p>
+                                    <p class="text-success font-weight-bold">₵5.00 / Bunch</p>
+                                    <button class="btn btn-success btn-sm add-to-cart" data-product-id="3">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Promotions/Deals Section -->
+            <section id="promotions-deals" class="py-5">
+                <div class="container">
+                    <h2 class="text-center text-danger mb-4">
+                        <i class="fas fa-tags"></i> Special Deals & Promotions
+                    </h2>
+                    <div class="row">
+                        <!-- Example Deal Card -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm border-danger">
+                                <img src="images/deal1.jpg" class="card-img-top" alt="Deal 1">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger">10% Off on Fresh Strawberries</h5>
+                                    <p class="card-text text-muted">Enjoy fresh strawberries at a discounted price.
+                                        Limited time offer!</p>
+                                    <p class="font-weight-bold text-success">Now: ₵18.00 / Box</p>
+                                    <p class="text-muted"><s>₵20.00</s></p>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Deal Card -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm border-danger">
+                                <img src="images/deal2.jpg" class="card-img-top" alt="Deal 2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger">Buy 2 Get 1 Free - Organic Eggs</h5>
+                                    <p class="card-text text-muted">Stock up on organic eggs and enjoy extra savings.
+                                    </p>
+                                    <p class="font-weight-bold text-success">₵18.00 / Dozen</p>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Deal Card -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm border-danger">
+                                <img src="images/deal3.jpg" class="card-img-top" alt="Deal 3">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger">20% Off on All Citrus Fruits</h5>
+                                    <p class="card-text text-muted">Boost your vitamin C intake with this amazing offer.
+                                    </p>
+                                    <p class="font-weight-bold text-success">Now: ₵8.00 / Kg</p>
+                                    <p class="text-muted"><s>₵10.00</s></p>
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="promotions.html" class="btn btn-outline-danger btn-lg">
+                            View All Deals
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Cart Preview Sidebar -->
+            <div id="cart-preview-sidebar" class="cart-preview-sidebar h-40">
+                <div class="sidebar-header">
+                    <h6>Cart Preview</h6>
+                    <!-- Close Button Text -->
+                    <button id="close-cart-sidebar" class="btn btn-outline-danger">Close Cart</button>
+                </div>
+
+                <div class="cart-items-list">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+
+                <div class="cart-summary">
+                    <p><strong>Total Items:</strong> <span id="total-items">0</span></p>
+                    <p><strong>Total Price:</strong> ₵<span id="total-price">0.00</span></p>
+                </div>
+
+                <div class="cart-actions">
+                    <button id="proceed-to-checkout" class="btn btn-primary">Proceed to Checkout</button>
+                </div>
             </div>
+
+            <!-- Button to Open Cart Preview Sidebar -->
+            <button id="open-cart-sidebar" class="btn btn-outline-primary">
+                <i class="fas fa-shopping-cart"></i> View Cart
+            </button>
+
+
+
+
+            <!-- Wishlist Section -->
+            <section id="wishlist" class="py-5">
+                <div class="container">
+                    <h2 class="text-center text-primary mb-4">
+                        <i class="fas fa-heart"></i> Your Wishlist
+                    </h2>
+
+                    <!-- Check if wishlist has any items -->
+                    <div id="wishlist-message" class="text-center mb-4">
+                        <p>No items in your wishlist yet. Start adding products you love!</p>
+                    </div>
+
+                    <div id="wishlist-items" class="row">
+                        <!-- Wishlist Item Template -->
+                        <div class="col-md-4 mb-4 wishlist-item" data-product-id="1">
+                            <div class="card shadow-sm">
+                                <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Organic Avocados</h5>
+                                    <p class="card-text text-muted">Fresh organic avocados for your healthy meals.</p>
+                                    <p class="font-weight-bold text-success">₵15.00 / Kg</p>
+                                    <button class="btn btn-success btn-sm add-to-cart">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                    <button class="btn btn-danger btn-sm remove-from-wishlist mt-2">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Repeat for other products as needed -->
+                    </div>
+
+                    <!-- No Products in Wishlist -->
+                    <div class="text-center mt-4" id="empty-wishlist" style="display: none;">
+                        <p>Your wishlist is empty.</p>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section id="farmer-spotlights" class="container mt-5">
+                <h2 class="text-center mb-5 text-primary font-weight-bold">Farmer Spotlights</h2>
+                <div class="list-group">
+                    <!-- Farmer 1 -->
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-1">John Doe</h5>
+                            <p class="mb-1">Specializing in organic vegetables like tomatoes, cucumbers, and lettuce.</p>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">View Products</span>
+                    </a>
+            
+                    <!-- Farmer 2 -->
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-1">Jane Smith</h5>
+                            <p class="mb-1">Focused on free-range eggs and poultry products.</p>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">View Products</span>
+                    </a>
+            
+                    <!-- Farmer 3 -->
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-1">Kwame Agyemang</h5>
+                            <p class="mb-1">Producer of exotic fruits like pineapples and mangoes.</p>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">View Products</span>
+                    </a>
+                </div>
+            </section>
+            
+
         </div>
-    </header>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <footer>
+        <!-- Footer dynamically included -->
+    </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
 
+    <script>
+        // Function to open the Cart Preview Sidebar
+        function openCartSidebar() {
+            document.getElementById("cart-preview-sidebar").style.right = "0"; // Slide in
+            document.getElementById("open-cart-sidebar").innerHTML = '<i class="fas fa-times"></i> Close Cart'; // Change to Close Cart
+        }
+
+        // Function to close the Cart Preview Sidebar
+        function closeCartSidebar() {
+            document.getElementById("cart-preview-sidebar").style.right = "-300px"; // Slide out
+            document.getElementById("open-cart-sidebar").innerHTML = '<i class="fas fa-shopping-cart"></i> View Cart'; // Change back to View Cart
+        }
+
+        // Event Listener for opening the sidebar
+        document.getElementById("open-cart-sidebar").addEventListener("click", function () {
+            const sidebarIsOpen = document.getElementById("cart-preview-sidebar").style.right === "0px";
+
+            if (sidebarIsOpen) {
+                closeCartSidebar();
+            } else {
+                openCartSidebar();
+                updateCartSidebar();  // Update cart preview when opened
+            }
+        });
+
+        // Event Listener for closing the sidebar via the close button in the sidebar
+        document.getElementById("close-cart-sidebar").addEventListener("click", closeCartSidebar);
+
+        // Function to update the cart items in the sidebar
+        function updateCartSidebar() {
+            const cartItemsList = document.querySelector(".cart-items-list");
+            const totalItems = document.getElementById("total-items");
+            const totalPrice = document.getElementById("total-price");
+
+            // Retrieve cart data from localStorage
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Clear current cart items
+            cartItemsList.innerHTML = "";
+
+            // Initialize total variables
+            let totalQuantity = 0;
+            let totalAmount = 0;
+
+            // Loop through the cart items and display them
+            cart.forEach(item => {
+                const cartItemElement = document.createElement("div");
+                cartItemElement.classList.add("cart-item");
+
+                cartItemElement.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-quantity">Qty: ${item.quantity}</div>
+            <div class="cart-item-price">₵${(item.price * item.quantity).toFixed(2)}</div>
+        `;
+                cartItemsList.appendChild(cartItemElement);
+
+                // Update total items and price
+                totalQuantity += item.quantity;
+                totalAmount += item.price * item.quantity;
+            });
+
+            // Update total items and price on the sidebar
+            totalItems.textContent = totalQuantity;
+            totalPrice.textContent = totalAmount.toFixed(2);
+        }
+
+    </script>
+
+    <script>
+        // Function to fetch and display cart items in the sidebar
+        function updateCartSidebar() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || []; // Retrieve cart from localStorage
+            const cartItemsList = document.querySelector(".cart-items-list"); // Sidebar cart items container
+            const totalItems = document.getElementById("total-items"); // Total items span
+            const totalPrice = document.getElementById("total-price"); // Total price span
+
+            // Clear existing items in the sidebar
+            cartItemsList.innerHTML = "";
+
+            // Initialize totals
+            let totalQuantity = 0;
+            let totalAmount = 0;
+
+            // If the cart is empty, show a message
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = `<p>Your cart is empty.</p>`;
+                totalItems.textContent = "0";
+                totalPrice.textContent = "₵0.00";
+                return;
+            }
+
+            // Loop through each item in the cart and display it
+            cart.forEach(item => {
+                // Extract and sanitize data
+                const itemName = item.name || "Unknown Product";
+                const itemPrice = parseFloat(item.price.replace(/[₵,/a-z\s]/gi, "")) || 0; // Remove currency and non-numeric
+                const itemQuantity = parseInt(item.quantity) || 0;
+                const itemSubtotal = itemPrice * itemQuantity;
+
+                // Update totals
+                totalQuantity += itemQuantity;
+                totalAmount += itemSubtotal;
+
+                // Create cart item element
+                const cartItemElement = document.createElement("div");
+                cartItemElement.classList.add(
+                    "cart-item",
+                    "d-flex",
+                    "justify-content-between",
+                    "align-items-center",
+                    "mb-2",
+                    "p-2",
+                    "rounded",
+                    "bg-light"
+                );
+
+                cartItemElement.innerHTML = `
+                    <div>
+                        <strong>${itemName}</strong>
+                        <div>Qty: ${itemQuantity}</div>
+                        <div>₵${itemSubtotal.toFixed(2)}</div>
+                    </div>
+                    <button class="btn btn-danger btn-sm" onclick="removeFromCart('${itemName}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+
+                cartItemsList.appendChild(cartItemElement);
+            });
+
+            // Update the total items and total price in the sidebar
+            totalItems.textContent = totalQuantity;
+            totalPrice.textContent = `₵${totalAmount.toFixed(2)}`;
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(itemName) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart = cart.filter(item => item.name !== itemName); // Remove the item by name
+            localStorage.setItem("cart", JSON.stringify(cart)); // Save updated cart
+            updateCartSidebar(); // Refresh sidebar
+        }
+
+        // Function to open the cart sidebar
+        function openCartSidebar() {
+            document.getElementById("cart-preview-sidebar").style.right = "0"; // Open sidebar
+            updateCartSidebar(); // Update cart details
+        }
+
+        // Function to close the cart sidebar
+        function closeCartSidebar() {
+            document.getElementById("cart-preview-sidebar").style.right = "-300px"; // Close sidebar
+        }
+
+        // Event listener for the "View Cart" button
+        document.getElementById("open-cart-sidebar").addEventListener("click", openCartSidebar);
+
+        // Event listener for the "Close Sidebar" button
+        document.getElementById("close-cart-sidebar").addEventListener("click", closeCartSidebar);
+
+        // Initialize the cart sidebar on page load
+        document.addEventListener("DOMContentLoaded", updateCartSidebar);
+    </script>
 
 
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <!-- Meta Tags for responsive design -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- Bootstrap CSS (for styling) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
 
-    <!-- Font Awesome Icons (for icons like search, cart, etc.) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-    <!-- Title of the Page -->
-    <title>FarmConnect</title>
-</head>
+        // Simulate a wishlist using local storage
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-<body>
-    <!-- Header Section -->
-    <header class="header fixed-top bg-white shadow-sm">
-        <div class="container-fluid">
-            <div class="row align-items-center justify-content-between">
-                <!-- Logo and Brand Name (Far Left) -->
-                <div class="col-md-3">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="font-weight-bold" style="font-size: 1.5rem; color: #28a745;">FarmConnect</span>
-                    </a>
-                </div>
+        // DOM Elements
+        const wishlistItemsContainer = document.getElementById("wishlist-items");
+        const wishlistMessage = document.getElementById("wishlist-message");
+        const emptyWishlistMessage = document.getElementById("empty-wishlist");
 
-                <!-- Navigation Menu and Search Feature -->
-                <div class="col-md-6">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+        // Function to update wishlist UI
+        function updateWishlistUI() {
+            // Clear previous items
+            wishlistItemsContainer.innerHTML = '';
+
+            if (wishlist.length === 0) {
+                wishlistMessage.style.display = "block";
+                emptyWishlistMessage.style.display = "block";
+            } else {
+                wishlistMessage.style.display = "none";
+                emptyWishlistMessage.style.display = "none";
+
+                wishlist.forEach(product => {
+                    const productCard = document.createElement("div");
+                    productCard.classList.add("col-md-4", "mb-4", "wishlist-item");
+                    productCard.setAttribute("data-product-id", product.id);
+
+                    productCard.innerHTML = `
+                <div class="card shadow-sm">
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text text-muted">${product.description}</p>
+                        <p class="font-weight-bold text-success">₵${product.price}</p>
+                        <button class="btn btn-success btn-sm add-to-cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="index.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="marketplace.html">Marketplace</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="#">B2B Portal</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="#">Farmers</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="#">Payments</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="#">About Us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-
-                <!-- Search Bar, Cart, and Account Dropdown Section -->
-                <div class="col-md-3 d-flex justify-content-end align-items-center">
-                    <!-- Search Feature -->
-                    <form class="d-flex search-bar mr-3" action="/search" method="GET">
-                        <input class="form-control form-control-sm" type="search" name="query" placeholder="Search..."
-                            aria-label="Search">
-                        <button class="btn btn-outline-success btn-sm ml-2" type="submit">
-                            <i class="fas fa-search"></i>
+                        <button class="btn btn-danger btn-sm remove-from-wishlist mt-2">
+                            <i class="fas fa-trash"></i> Remove
                         </button>
-                    </form>
-
-                    <!-- Cart Icon -->
-                    <a href="cart.html" class="cart-icon mr-3 text-dark" style="font-size: 1.5rem;">
-                        <i class="fas fa-shopping-cart"></i> 
-                    </a>
-
-                    <!-- Account Dropdown -->
-                    <div class="dropdown">
-                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="accountDropdown"
-                            data-toggle="dropdown" aria-expanded="false">
-                            Account
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
-                            <a class="dropdown-item" href="account.html">My Account</a>
-                            <a class="dropdown-item" href="orders.html">Orders</a>
-                            <a class="dropdown-item" href="saved-items.html">Saved Items</a>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
+            `;
+                    wishlistItemsContainer.appendChild(productCard);
+                });
+            }
+        }
 
-    <!-- Bootstrap JS (necessary for interactive components like dropdowns) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        // Function to add item to wishlist
+        function addToWishlist(product) {
+            // Check if product already exists in wishlist
+            if (!wishlist.some(item => item.id === product.id)) {
+                wishlist.push(product);
+                localStorage.setItem("wishlist", JSON.stringify(wishlist));
+                updateWishlistUI();
+            }
+        }
+
+        // Function to remove item from wishlist
+        function removeFromWishlist(productId) {
+            const updatedWishlist = wishlist.filter(item => item.id !== productId);
+            localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+            updateWishlistUI();
+        }
+
+        // Add event listeners to "Add to Wishlist" buttons
+        document.querySelectorAll(".add-to-wishlist").forEach(button => {
+            button.addEventListener("click", function () {
+                const product = {
+                    id: this.getAttribute("data-product-id"),
+                    name: this.getAttribute("data-product-name"),
+                    description: this.getAttribute("data-product-description"),
+                    price: this.getAttribute("data-product-price"),
+                    image: this.getAttribute("data-product-image")
+                };
+                addToWishlist(product);
+            });
+        });
+
+        // Add event listeners to "Remove from Wishlist" buttons
+        wishlistItemsContainer.addEventListener("click", function (e) {
+            if (e.target.classList.contains("remove-from-wishlist")) {
+                const productId = e.target.closest(".wishlist-item").getAttribute("data-product-id");
+                removeFromWishlist(productId);
+            }
+        });
+
+        // Initialize wishlist UI
+        updateWishlistUI();
+
+
+        // JavaScript to dynamically include header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('header').outerHTML = data;
+            });
+    </script>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('footer').outerHTML = data;
+            });
+    </script>
+
+    <script>
+        // JavaScript to handle "Add to Cart" button clicks
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = this.getAttribute('data-product-id');
+                alert(`Product with ID ${productId} added to cart!`);
+                // Add logic to update cart storage or display
+            });
+        });
+    </script>
+
+
+    <script>
+        // JavaScript to filter products by region
+        function filterProductsByRegion() {
+            const selectedRegion = document.getElementById("user-region").value;
+            const products = document.querySelectorAll(".product-card");
+
+            products.forEach(product => {
+                const productRegion = product.getAttribute("data-region");
+
+                // Show all products if "All" is selected or match the region
+                if (selectedRegion === "All" || productRegion === selectedRegion) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+    </script>
 
 
 </body>
 
 </html>
-
-
-
-
-
-<table class="table table-hover table-striped shadow-sm rounded">
-    <thead class="thead-light">
-        <tr>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Ratings</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><img src="images/product1.jpg" alt="Organic Carrots" class="img-thumbnail" style="width: 80px;"></td>
-            <td>
-                <h6 class="text-primary">Organic Carrots</h6>
-                <p class="small text-muted">By: Green Valley Farms</p>
-            </td>
-            <td class="text-success font-weight-bold">₵12.00 / Kg</td>
-            <td>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <i class="far fa-star text-warning"></i>
-            </td>
-            <td><button class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Add</button></td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><img src="images/product1.jpg" alt="Organic Carrots" class="img-thumbnail" style="width: 80px;"></td>
-            <td>
-                <h6 class="text-primary">Organic Carrots</h6>
-                <p class="small text-muted">By: Green Valley Farms</p>
-            </td>
-            <td class="text-success font-weight-bold">₵12.00 / Kg</td>
-            <td>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <i class="far fa-star text-warning"></i>
-            </td>
-            <td><button class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Add</button></td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><img src="images/product1.jpg" alt="Organic Carrots" class="img-thumbnail" style="width: 80px;"></td>
-            <td>
-                <h6 class="text-primary">Organic Carrots</h6>
-                <p class="small text-muted">By: Green Valley Farms</p>
-            </td>
-            <td class="text-success font-weight-bold">₵12.00 / Kg</td>
-            <td>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <i class="far fa-star text-warning"></i>
-            </td>
-            <td><button class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Add</button></td>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr>
-            <td><img src="images/product1.jpg" alt="Organic Carrots" class="img-thumbnail" style="width: 80px;"></td>
-            <td>
-                <h6 class="text-primary">Organic Carrots</h6>
-                <p class="small text-muted">By: Green Valley Farms</p>
-            </td>
-            <td class="text-success font-weight-bold">₵12.00 / Kg</td>
-            <td>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <i class="far fa-star text-warning"></i>
-            </td>
-            <td><button class="btn btn-success btn-sm"><i class="fas fa-cart-plus"></i> Add</button></td>
-        </tr>
-    </tbody>
-</table>
-
-
-
-
-<section id="farmer-spotlights" class="container mt-5">
-    <h2 class="text-center mb-5 text-primary font-weight-bold">Farmer Spotlights</h2>
-    <div class="list-group">
-        <!-- Farmer 1 -->
-        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            <div>
-                <h5 class="mb-1">John Doe</h5>
-                <p class="mb-1">Specializing in organic vegetables like tomatoes, cucumbers, and lettuce.</p>
-            </div>
-            <span class="badge bg-primary rounded-pill">View Products</span>
-        </a>
-
-        <!-- Farmer 2 -->
-        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            <div>
-                <h5 class="mb-1">Jane Smith</h5>
-                <p class="mb-1">Focused on free-range eggs and poultry products.</p>
-            </div>
-            <span class="badge bg-primary rounded-pill">View Products</span>
-        </a>
-
-        <!-- Farmer 3 -->
-        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            <div>
-                <h5 class="mb-1">Kwame Agyemang</h5>
-                <p class="mb-1">Producer of exotic fruits like pineapples and mangoes.</p>
-            </div>
-            <span class="badge bg-primary rounded-pill">View Products</span>
-        </a>
-    </div>
-</section>
